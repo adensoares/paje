@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:paje/src/core/const/app_colors.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key}) : super(key: key);
+  const SearchBar({Key? key, required this.controller}) : super(key: key);
+
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,8 @@ class SearchBar extends StatelessWidget {
           color: AppColors.secondary,
           borderRadius: BorderRadius.circular(5),
         ),
-        child: TextField(
+        child: TextFormField(
+          controller: controller,
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.search),
             border: InputBorder.none,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const Color watermark = Color.fromRGBO(94, 120, 169, 0.07);
   static const Color primary = Color.fromRGBO(94, 120, 169, 1);
   static const Color secondary = Color.fromRGBO(255, 255, 255, 1);
+  static const Color unselectedIcon = Color.fromRGBO(202, 208, 220, 1);
 
   static const Color onPrimary = Color.fromRGBO(255, 255, 255, 1);
   static const Color onSecondary = Color.fromRGBO(94, 120, 169, 1);

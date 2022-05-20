@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-class Decisao {
+class AtoModel {
+  String tipo;
   String processo;
   String magistrado;
   String vara;
@@ -9,7 +10,8 @@ class Decisao {
   String data;
   String texto;
 
-  Decisao({
+  AtoModel({
+    required this.tipo,
     required this.processo,
     required this.magistrado,
     required this.vara,
@@ -19,7 +21,8 @@ class Decisao {
     required this.texto,
   });
 
-  Decisao copyWith({
+  AtoModel copyWith({
+    String? tipo,
     String? processo,
     String? magistrado,
     String? vara,
@@ -28,7 +31,8 @@ class Decisao {
     String? data,
     String? texto,
   }) {
-    return Decisao(
+    return AtoModel(
+      tipo: tipo ?? this.tipo,
       processo: processo ?? this.processo,
       magistrado: magistrado ?? this.magistrado,
       vara: vara ?? this.vara,
@@ -41,6 +45,7 @@ class Decisao {
 
   Map<String, dynamic> toMap() {
     return {
+      'tipo': tipo,
       'processo': processo,
       'magistrado': magistrado,
       'vara': vara,
@@ -51,8 +56,9 @@ class Decisao {
     };
   }
 
-  factory Decisao.fromMap(Map<String, dynamic> map) {
-    return Decisao(
+  factory AtoModel.fromMap(Map<String, dynamic> map) {
+    return AtoModel(
+      tipo: map['tipo'] ?? '',
       processo: map['processo'] ?? '',
       magistrado: map['magistrado'] ?? '',
       vara: map['vara'] ?? '',
@@ -65,19 +71,20 @@ class Decisao {
 
   String toJson() => json.encode(toMap());
 
-  factory Decisao.fromJson(String source) =>
-      Decisao.fromMap(json.decode(source));
+  factory AtoModel.fromJson(String source) =>
+      AtoModel.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Decisao(processo: $processo, magistrado: $magistrado, vara: $vara, classe: $classe, titulo: $titulo, data: $data, texto: $texto)';
+    return 'AtoModel(tipo: $tipo, processo: $processo, magistrado: $magistrado, vara: $vara, classe: $classe, titulo: $titulo, data: $data, texto: $texto)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Decisao &&
+    return other is AtoModel &&
+        other.tipo == tipo &&
         other.processo == processo &&
         other.magistrado == magistrado &&
         other.vara == vara &&
@@ -89,7 +96,8 @@ class Decisao {
 
   @override
   int get hashCode {
-    return processo.hashCode ^
+    return tipo.hashCode ^
+        processo.hashCode ^
         magistrado.hashCode ^
         vara.hashCode ^
         classe.hashCode ^

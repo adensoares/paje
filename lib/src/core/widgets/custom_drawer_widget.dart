@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:paje/src/core/const/app_colors.dart';
 import 'package:paje/src/core/widgets/custom_filterchip_widget.dart';
 import 'package:paje/src/core/widgets/custom_text_form_field_widget.dart';
 import 'package:paje/src/core/widgets/primary_button_widget.dart';
@@ -13,21 +15,41 @@ class CustomDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Filtros',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Filtros',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        'Busca Avançada',
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                'Busca Avançada',
-              ),
+                // IconButton(
+                //   onPressed: () {
+                //     Navigator.pop(context);
+                //   },
+                //   icon: Icon(
+                //     FontAwesomeIcons.x,
+                //     size: 16,
+                //   ),
+                // )
+              ],
             ),
             Divider(
               thickness: 1,
@@ -104,9 +126,11 @@ class CustomDrawer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Text(
-                    'Sair',
+                    'Fechar',
                     style: TextStyle(
                       fontSize: 16,
                     ),
