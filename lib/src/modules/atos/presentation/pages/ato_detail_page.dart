@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:paje/src/core/widgets/circle_icon_button_widget.dart';
 
-import '../../../../core/widgets/custom_iconbutton_widget.dart';
-import '../../../../core/widgets/custom_appbar_widget.dart';
-import '../../../../core/const/app_colors.dart';
-import '../../../../core/widgets/custom_drawer_widget.dart';
+import '../../../../core/const/paje_colors.dart';
 import '../../data/model/ato_model.dart';
 
 class AtoDetailPage extends StatefulWidget {
@@ -24,8 +21,11 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: CustomAppBar(),
+      backgroundColor: PajeColors.background,
+      appBar: AppBar(
+        title: Text("Ato Judicial"),
+        centerTitle: true,
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -57,7 +57,7 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
-                                        color: AppColors.primary,
+                                        color: PajeColors.primary,
                                       ),
                                     ),
                                     Padding(
@@ -71,7 +71,7 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
-                                        color: AppColors.primary,
+                                        color: PajeColors.primary,
                                       ),
                                     ),
                                     Padding(
@@ -93,7 +93,7 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
-                                                color: AppColors.primary,
+                                                color: PajeColors.primary,
                                               ),
                                             ),
                                             Padding(
@@ -114,7 +114,7 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
-                                                color: AppColors.primary,
+                                                color: PajeColors.primary,
                                               ),
                                             ),
                                             Padding(
@@ -135,7 +135,7 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
                               Center(
                                 child: Icon(
                                   FontAwesomeIcons.gavel,
-                                  color: AppColors.watermark,
+                                  color: PajeColors.watermark,
                                   size: 150,
                                 ),
                               ),
@@ -166,7 +166,7 @@ class _AtoDetailPageState extends State<AtoDetailPage> {
                                           Text(
                                             widget.atoModel.titulo,
                                             style: TextStyle(
-                                              color: AppColors.primary,
+                                              color: PajeColors.primary,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 18,
                                             ),

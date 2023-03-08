@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
-class CustomFilterChip extends StatefulWidget {
-  const CustomFilterChip({Key? key, required this.text}) : super(key: key);
+class PajeFilterChip extends StatefulWidget {
+  const PajeFilterChip({Key? key, required this.text}) : super(key: key);
 
   final String text;
 
   @override
-  State<CustomFilterChip> createState() => _CustomFilterChipState();
+  State<PajeFilterChip> createState() => _PajeFilterChipState();
 }
 
-class _CustomFilterChipState extends State<CustomFilterChip> {
+class _PajeFilterChipState extends State<PajeFilterChip> {
   bool selected = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FilterChip(
-        backgroundColor: AppColors.secondary,
+        backgroundColor: PajeColors.secondary,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
             side: BorderSide(
               width: 2,
-              color: AppColors.primary,
+              color: PajeColors.primary,
             )),
         label: Text(
           widget.text,
           style: TextStyle(
-            color: selected ? AppColors.onPrimary : AppColors.onSecondary,
+            color: selected ? PajeColors.onPrimary : PajeColors.onSecondary,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
@@ -38,8 +38,8 @@ class _CustomFilterChipState extends State<CustomFilterChip> {
           setState(() {});
         },
         pressElevation: 2,
-        selectedColor: AppColors.primary,
-        checkmarkColor: AppColors.onPrimary,
+        selectedColor: PajeColors.primary,
+        checkmarkColor: PajeColors.onPrimary,
       ),
     );
   }

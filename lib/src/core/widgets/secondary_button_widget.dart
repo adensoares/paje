@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
@@ -19,16 +19,16 @@ class SecondaryButton extends StatelessWidget {
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: AppColors.primary,
+          color: PajeColors.primary,
         ),
       ),
       style: ElevatedButton.styleFrom(
         fixedSize: Size(MediaQuery.of(context).size.width, 40),
-        primary: AppColors.secondary,
+        backgroundColor: PajeColors.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
           side: BorderSide(
-            color: AppColors.primary,
+            color: PajeColors.primary,
             width: 2,
           ),
         ),

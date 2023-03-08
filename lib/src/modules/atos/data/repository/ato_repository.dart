@@ -1,4 +1,4 @@
-import 'package:paje/src/modules/ato/data/model/ato_model.dart';
+import 'package:paje/src/modules/atos/data/model/ato_model.dart';
 
 class AtoRepository {
   List<AtoModel> atos = [

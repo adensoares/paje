@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/const/app_colors.dart';
+import 'core/const/paje_colors.dart';
 
 import 'modules/auth/presentation/pages/splash_page.dart';
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PAJE',
       theme: ThemeData(
-        primarySwatch: AppColors.customMaterialPrimary,
+        primarySwatch: PajeColors.customMaterialPrimary,
       ),
       home: SplashPage(),
     );

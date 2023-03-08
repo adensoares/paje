@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
+class PajeTextFormField extends StatelessWidget {
+  const PajeTextFormField({
     this.keyboardType,
     this.labelText,
     this.hintText,
@@ -26,14 +26,14 @@ class CustomTextFormField extends StatelessWidget {
         obscureText: obscureText,
         keyboardType: keyboardType,
         onTap: onTap,
-        cursorColor: AppColors.primary,
+        cursorColor: PajeColors.primary,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
           helperText: helperText,
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.primary,
+              color: PajeColors.primary,
               width: 2,
             ),
           ),

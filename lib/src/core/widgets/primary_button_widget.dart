@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -23,7 +23,7 @@ class PrimaryButton extends StatelessWidget {
       ),
       style: ElevatedButton.styleFrom(
         fixedSize: Size(MediaQuery.of(context).size.width, 40),
-        primary: AppColors.primary,
+        backgroundColor: PajeColors.primary,
       ),
     );
   }

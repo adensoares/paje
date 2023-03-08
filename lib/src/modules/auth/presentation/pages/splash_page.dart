@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paje/src/modules/login/presentation/pages/login_page.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       parent: controller,
       curve: Curves.fastOutSlowIn,
     );
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       controller.forward();
     });
     super.initState();
@@ -52,7 +52,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
-            color: AppColors.primary,
+            color: PajeColors.primary,
           ),
           child: ScaleTransition(
             scale: animation,

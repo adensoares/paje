@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../const/app_colors.dart';
+import '../const/paje_colors.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSize {
-  const CustomAppBar({Key? key, this.title}) : super(key: key);
+class PajeAppBar extends StatelessWidget implements PreferredSize {
+  const PajeAppBar({Key? key, this.title}) : super(key: key);
 
   final Widget? title;
   @override
@@ -16,16 +16,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      iconTheme: IconThemeData(color: AppColors.primary),
+      iconTheme: IconThemeData(color: PajeColors.primary),
       title: title,
       elevation: 0,
-      backgroundColor: AppColors.background,
+      backgroundColor: PajeColors.background,
       actions: [
         IconButton(
           onPressed: () {},
           icon: Icon(
             FontAwesomeIcons.solidBell,
-            color: AppColors.primary,
+            color: PajeColors.primary,
           ),
         ),
       ],

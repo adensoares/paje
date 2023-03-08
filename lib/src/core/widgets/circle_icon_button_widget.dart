@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
 class CircleIconButton extends StatefulWidget {
   const CircleIconButton({
@@ -23,7 +22,7 @@ class _CircleIconButtonState extends State<CircleIconButton> {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 25,
-      backgroundColor: AppColors.primary,
+      backgroundColor: PajeColors.primary,
       child: IconButton(
         splashRadius: 25,
         icon: isSelected ? widget.solidIcon : widget.outlineIcon,

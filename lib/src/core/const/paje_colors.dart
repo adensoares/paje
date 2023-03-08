@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+class PajeColors {
   static const Color watermark = Color.fromRGBO(94, 120, 169, 0.07);
   static const Color primary = Color.fromRGBO(94, 120, 169, 1);
   static const Color secondary = Color.fromRGBO(255, 255, 255, 1);

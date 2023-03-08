@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paje/src/core/const/app_colors.dart';
+import 'package:paje/src/core/const/paje_colors.dart';
 
-class CustomIconButton extends StatefulWidget {
-  const CustomIconButton({
+class PajeIconButton extends StatefulWidget {
+  const PajeIconButton({
     Key? key,
     required this.outlineIcon,
     required this.solidIcon,
@@ -14,16 +13,17 @@ class CustomIconButton extends StatefulWidget {
   final Widget solidIcon;
 
   @override
-  State<CustomIconButton> createState() => _CustomIconButtonState();
+  State<PajeIconButton> createState() => _PajeIconButtonState();
 }
 
-class _CustomIconButtonState extends State<CustomIconButton> {
+class _PajeIconButtonState extends State<PajeIconButton> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return IconButton(
       icon: isSelected ? widget.solidIcon : widget.outlineIcon,
-      color: AppColors.primary,
+      iconSize: 32,
+      color: PajeColors.primary,
       onPressed: () {
         setState(() {
           isSelected = !isSelected;

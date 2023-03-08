@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:paje/src/core/const/app_colors.dart';
-import 'package:paje/src/core/widgets/custom_filterchip_widget.dart';
-import 'package:paje/src/core/widgets/custom_text_form_field_widget.dart';
+import 'package:paje/src/core/widgets/paje_filterchip_widget.dart';
+import 'package:paje/src/core/widgets/paje_text_form_field_widget.dart';
 import 'package:paje/src/core/widgets/primary_button_widget.dart';
 
-class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({Key? key}) : super(key: key);
+class PajeDrawer extends StatelessWidget {
+  const PajeDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,23 +56,23 @@ class CustomDrawer extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  CustomTextFormField(
+                  PajeTextFormField(
                     obscureText: false,
                     labelText: 'Assunto',
                   ),
-                  CustomTextFormField(
+                  PajeTextFormField(
                     obscureText: false,
                     labelText: 'Processo',
                   ),
-                  CustomTextFormField(
+                  PajeTextFormField(
                     obscureText: false,
                     labelText: 'Magistrado',
                   ),
-                  CustomTextFormField(
+                  PajeTextFormField(
                     obscureText: false,
                     labelText: 'Classe',
                   ),
-                  CustomTextFormField(
+                  PajeTextFormField(
                     obscureText: false,
                     labelText: 'Vara',
                   ),
@@ -87,16 +85,16 @@ class CustomDrawer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'e',
                 ),
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'ou',
                 ),
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'adj',
                 ),
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'não',
                 ),
               ],
@@ -104,13 +102,13 @@ class CustomDrawer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'prox',
                 ),
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'mesmo',
                 ),
-                CustomFilterChip(
+                PajeFilterChip(
                   text: 'com',
                 ),
               ],

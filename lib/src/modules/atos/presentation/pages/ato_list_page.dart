@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:paje/src/core/widgets/paje_appbar_widget.dart';
 
-import '../../../../core/widgets/custom_iconbutton_widget.dart';
-import '../../../../core/const/app_colors.dart';
-import '../../../../core/widgets/custom_appbar_widget.dart';
-import '../../../../core/widgets/custom_drawer_widget.dart';
-import '../../data/repositories/ato_repository.dart';
+import '../../../../core/const/paje_colors.dart';
+import '../../../../core/widgets/paje_iconbutton_widget.dart';
 import 'ato_detail_page.dart';
 
 class AtoListPage extends StatefulWidget {
@@ -101,8 +99,8 @@ class _AtoListPageState extends State<AtoListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: CustomAppBar(),
+      backgroundColor: PajeColors.background,
+      appBar: PajeAppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -129,7 +127,7 @@ class _AtoListPageState extends State<AtoListPage> {
                                                   atoModel: newAtos[index],
                                                 )));
                                   },
-                                  leading: CustomIconButton(
+                                  leading: PajeIconButton(
                                     outlineIcon: Icon(
                                       FontAwesomeIcons.bookmark,
                                     ),
@@ -144,7 +142,7 @@ class _AtoListPageState extends State<AtoListPage> {
                                     child: Text(
                                       newAtos[index].titulo,
                                       style: TextStyle(
-                                        color: AppColors.primary,
+                                        color: PajeColors.primary,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -198,11 +196,11 @@ class _AtoListPageState extends State<AtoListPage> {
               label: 'Decisão',
             ),
           ],
-          backgroundColor: AppColors.background,
+          backgroundColor: PajeColors.background,
           elevation: 0,
           iconSize: 30,
           selectedFontSize: 16,
-          unselectedItemColor: AppColors.unselectedIcon,
+          unselectedItemColor: PajeColors.unselectedIcon,
           selectedIconTheme: IconThemeData(
             size: 50,
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:paje/src/modules/home/presentation/pages/home_page.dart';
 
-import '../../../home/presentation/pages/home_page.dart';
-import '../../../../core/const/app_colors.dart';
-import '../../../../core/widgets/custom_text_form_field_widget.dart';
+import '../../../../core/const/paje_colors.dart';
+import '../../../../core/widgets/paje_text_form_field_widget.dart';
 import '../../../../core/widgets/primary_button_widget.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: PajeColors.background,
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -30,12 +30,12 @@ class _LoginPageState extends State<LoginPage> {
                   Image.asset(
                     'assets/images/PajeFull.png',
                   ),
-                  CustomTextFormField(
+                  PajeTextFormField(
                     labelText: 'Login',
                     obscureText: false,
                     onTap: () {},
                   ),
-                  CustomTextFormField(
+                  PajeTextFormField(
                     labelText: 'Senha',
                     obscureText: true,
                     onTap: () {},
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     style: TextButton.styleFrom(
-                      primary: AppColors.primary,
+                      foregroundColor: PajeColors.primary,
                     ),
                   ),
                 ],
