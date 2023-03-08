@@ -22,28 +22,25 @@ class _SearchPageState extends State<SearchPage> {
   List<AtoModel> _favorites = [];
   List<AtoModel> _atosFound = [];
 
-  // void _search(String value) {
-  //   atos = repository.atos
-  //       .where(
-  //           (ato) => ato.titulo.toLowerCase().contains((value.toLowerCase())))
-  //       .toList();
-  //   print(atos);
-  //   Navigator.of(context)
-  //       .push(MaterialPageRoute(builder: (context) => AtoListPage(atos: atos)));
-  // }
-
   @override
   void initState() {
     super.initState();
+    _loadFavorites();
   }
 
-  Future<void> _saveFavorites() async {
+  Future<void> _loadFavorites() async {
     final prefs = await SharedPreferences.getInstance();
-    final favoriteAtosJson = _favorites.map((ato) => ato.toJson()).toList();
-    await prefs.setStringList('favoriteAtos', favoriteAtosJson);
+    final favoriteAtosJson = prefs.getStringList('favoriteAtos');
+    if (favoriteAtosJson != null) {
+      final List<AtoModel> favoriteAtos =
+          favoriteAtosJson.map((json) => AtoModel.fromJson(json)).toList();
+      setState(() {
+        _favorites = favoriteAtos;
+      });
+    }
   }
 
-  void _handleFavorite(AtoModel ato) {
+  void _toggleFavorite(AtoModel ato) {
     setState(() {
       if (_favorites.contains(ato)) {
         _favorites.remove(ato);
@@ -54,20 +51,11 @@ class _SearchPageState extends State<SearchPage> {
     _saveFavorites();
   }
 
-  // void _handleFavorite(AtoModel ato) async {
-  //   setState(() {
-  //     if (_favorites.contains(ato)) {
-  //       _favorites.remove(ato);
-  //     } else {
-  //       _favorites.add(ato);
-  //     }
-  //   });
-
-  //   // Salvar a lista de favoritos no SharedPreferences
-  //   final prefs = await SharedPreferences.getInstance();
-  //   prefs.setStringList(
-  //       'favorites', _favorites.map((e) => e.toJson()).toList());
-  // }
+  Future<void> _saveFavorites() async {
+    final prefs = await SharedPreferences.getInstance();
+    final favoriteAtosJson = _favorites.map((ato) => ato.toJson()).toList();
+    await prefs.setStringList('favoriteAtos', favoriteAtosJson);
+  }
 
   void _search(String value) {
     List<AtoModel> _result = [];
@@ -100,7 +88,7 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 32,
+                vertical: 16,
               ),
               child: SearchBar(
                 controller: _searchController,
@@ -130,14 +118,15 @@ class _SearchPageState extends State<SearchPage> {
                                     _favorites.contains(_atosFound[index])
                                         ? Icons.star
                                         : Icons.star_border,
-                                    color:
-                                        _favorites.contains(_atosFound[index])
-                                            ? Colors.yellow
-                                            : PajeColors.customMaterialPrimary,
+                                    // color:
+                                    //     _favorites.contains(_atosFound[index])
+                                    //         ? Colors.yellow
+                                    //         : PajeColors.customMaterialPrimary,
+                                    color: PajeColors.customMaterialPrimary,
                                     size: 32,
                                   ),
                                   onPressed: () =>
-                                      _handleFavorite(_atosFound[index]),
+                                      _toggleFavorite(_atosFound[index]),
                                 ),
                                 title: Padding(
                                   padding: const EdgeInsets.only(
