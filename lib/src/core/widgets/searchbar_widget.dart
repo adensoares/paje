@@ -6,10 +6,12 @@ class SearchBar extends StatelessWidget {
     Key? key,
     required this.controller,
     this.onChanged,
+    required this.onPressed,
   }) : super(key: key);
 
   final TextEditingController? controller;
   final void Function(String)? onChanged;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +38,7 @@ class SearchBar extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      child: Text('Filter Modal'),
-                    );
-                  },
-                );
-              },
+              onPressed: onPressed,
               icon: Icon(
                 Icons.filter_list,
                 color: PajeColors.customMaterialPrimary,

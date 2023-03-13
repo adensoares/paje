@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paje/src/modules/home/presentation/pages/home_page.dart';
+import 'package:paje/src/modules/login/data/model/user_model.dart';
+import 'package:paje/src/modules/login/data/repository/user_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/const/paje_colors.dart';
 import '../../../../core/widgets/paje_text_form_field_widget.dart';
@@ -13,6 +16,36 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _userRepository = UserRepository();
+  final _formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  void _showDialog(String title, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Ok'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _saveUser(String name) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('name', name);
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -25,50 +58,79 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.symmetric(
                 horizontal: 32,
               ),
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/images/PajeFull.png',
-                  ),
-                  PajeTextFormField(
-                    labelText: 'Login',
-                    obscureText: false,
-                    onTap: () {},
-                  ),
-                  PajeTextFormField(
-                    labelText: 'Senha',
-                    obscureText: true,
-                    onTap: () {},
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 24.0,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/PajeFull.png',
                     ),
-                    child: PrimaryButton(
-                      text: 'Entrar',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          ),
-                        );
+                    PajeTextFormField(
+                      labelText: 'Usuário',
+                      obscureText: false,
+                      controller: _usernameController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, informe o usuário.';
+                        }
+                        return null;
                       },
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Esqueceu a senha?',
-                      style: TextStyle(
-                        fontSize: 16,
+                    PajeTextFormField(
+                      labelText: 'Senha',
+                      obscureText: true,
+                      controller: _passwordController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, informe a senha.';
+                        }
+                        return null;
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 24.0,
+                      ),
+                      child: PrimaryButton(
+                        text: 'Entrar',
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            UserModel? user = _userRepository.login(
+                              _usernameController.text,
+                              _passwordController.text,
+                            );
+                            if (user != null) {
+                              _saveUser(user.nome);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                ),
+                              );
+                            } else {
+                              _showDialog(
+                                'Erro',
+                                'Usuário ou senha incorretos.',
+                              );
+                            }
+                          }
+                        },
                       ),
                     ),
-                    style: TextButton.styleFrom(
-                      foregroundColor: PajeColors.primary,
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Esqueceu a senha?',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        foregroundColor: PajeColors.primary,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

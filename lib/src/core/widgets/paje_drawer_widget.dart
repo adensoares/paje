@@ -1,144 +1,130 @@
 import 'package:flutter/material.dart';
-import 'package:paje/src/core/widgets/paje_filterchip_widget.dart';
-import 'package:paje/src/core/widgets/paje_text_form_field_widget.dart';
-import 'package:paje/src/core/widgets/primary_button_widget.dart';
+import 'package:paje/src/modules/favorites/presentation/pages/favorites_page.dart';
+import 'package:paje/src/modules/login/presentation/pages/login_page.dart';
+import 'package:paje/src/modules/search/presentation/pages/search_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class PajeDrawer extends StatelessWidget {
+class PajeDrawer extends StatefulWidget {
   const PajeDrawer({Key? key}) : super(key: key);
+
+  @override
+  State<PajeDrawer> createState() => _PajeDrawerState();
+}
+
+class _PajeDrawerState extends State<PajeDrawer> {
+  String _name = 'Carregando...';
+  String _email = '';
+
+  @override
+  void initState() {
+    super.initState();
+    loadUser();
+  }
+
+  Future<void> loadUser() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _name = prefs.getString('name') ?? '';
+      _email = prefs.getString('email') ?? '';
+    });
+  }
+
+  String getInitials(String name) {
+    List<String> nameSplit = name.split(" ");
+    print(nameSplit);
+    String initials = nameSplit[0][0];
+    if (nameSplit.length > 1) {
+      initials += nameSplit[1][0];
+    }
+    return initials.toUpperCase();
+  }
+
+  void _logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove('name');
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+      (Route<dynamic> route) => false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Filtros',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text(
-                        'Busca Avançada',
-                      ),
-                    ),
-                  ],
-                ),
-                // IconButton(
-                //   onPressed: () {
-                //     Navigator.pop(context);
-                //   },
-                //   icon: Icon(
-                //     FontAwesomeIcons.x,
-                //     size: 16,
-                //   ),
-                // )
-              ],
-            ),
-            Divider(
-              thickness: 1,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  PajeTextFormField(
-                    obscureText: false,
-                    labelText: 'Assunto',
-                  ),
-                  PajeTextFormField(
-                    obscureText: false,
-                    labelText: 'Processo',
-                  ),
-                  PajeTextFormField(
-                    obscureText: false,
-                    labelText: 'Magistrado',
-                  ),
-                  PajeTextFormField(
-                    obscureText: false,
-                    labelText: 'Classe',
-                  ),
-                  PajeTextFormField(
-                    obscureText: false,
-                    labelText: 'Vara',
-                  ),
-                ],
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          UserAccountsDrawerHeader(
+            accountName: Text("Olá, $_name"),
+            accountEmail: Text("$_email"),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Text(
+                getInitials(_name),
+                style: TextStyle(fontSize: 40.0),
               ),
             ),
-            Divider(
-              thickness: 1,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                PajeFilterChip(
-                  text: 'e',
+          ),
+          ListTile(
+            leading: Icon(Icons.search),
+            title: Text('Busca Processual'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(),
                 ),
-                PajeFilterChip(
-                  text: 'ou',
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text('Favoritos'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FavoritesPage(),
                 ),
-                PajeFilterChip(
-                  text: 'adj',
-                ),
-                PajeFilterChip(
-                  text: 'não',
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                PajeFilterChip(
-                  text: 'prox',
-                ),
-                PajeFilterChip(
-                  text: 'mesmo',
-                ),
-                PajeFilterChip(
-                  text: 'com',
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: PrimaryButton(onPressed: () {}, text: 'Aplicar'),
-            ),
-            Divider(
-              thickness: 1,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    'Fechar',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  style: TextButton.styleFrom(),
-                ),
-              ],
-            ),
-          ],
-        ),
+              );
+            },
+          ),
+          Divider(
+            height: 2,
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text("Configurações"),
+            onTap: () {
+              // Navegar para a tela de configurações
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.help),
+            title: Text("Ajuda e suporte"),
+            onTap: () {
+              // Navegar para a tela de ajuda e suporte
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.info),
+            title: Text("Sobre"),
+            onTap: () {
+              // Navegar para a tela de informações sobre a empresa ou aplicativo
+            },
+          ),
+          Divider(
+            height: 2,
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text("Sair"),
+            onTap: () {
+              _logout();
+            },
+          ),
+        ],
       ),
     );
   }

@@ -86,10 +86,11 @@ class _FavoritesPageState extends State<FavoritesPage> {
                                     _favorites.contains(_favorites[index])
                                         ? Icons.star
                                         : Icons.star_border,
-                                    color:
-                                        _favorites.contains(_favorites[index])
-                                            ? Colors.yellow
-                                            : PajeColors.customMaterialPrimary,
+                                    // color:
+                                    //     _favorites.contains(_atosFound[index])
+                                    //         ? Colors.yellow
+                                    //         : PajeColors.customMaterialPrimary,
+                                    color: PajeColors.customMaterialPrimary,
                                     size: 32,
                                   ),
                                   onPressed: () =>
@@ -124,7 +125,26 @@ class _FavoritesPageState extends State<FavoritesPage> {
                           ),
                         );
                       })
-                  : Center(child: Text("Nenhum Ato Judicial encontrado")),
+                  : Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.search_off,
+                            color: PajeColors.primary,
+                            size: 150,
+                          ),
+                          Text(
+                            "Nenhum Ato Judicial Favoritado",
+                            style: TextStyle(
+                              color: PajeColors.primary,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
             ),
           ],
         ),

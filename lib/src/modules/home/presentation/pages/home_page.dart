@@ -26,77 +26,82 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          'assets/images/Paje_w.png',
-          width: 100,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Image.asset(
+            'assets/images/Paje_w.png',
+            width: 100,
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      drawer: PajeDrawer(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-          child: Column(
-            children: [
-              CustomScrollView(
-                physics: const ScrollPhysics(),
-                shrinkWrap: true,
-                slivers: [
-                  SliverGrid(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 1,
-                            crossAxisSpacing: 16,
-                            mainAxisSpacing: 16),
-                    delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) {
-                      return Card(
-                        child: InkWell(
-                          onTap: () {
-                            if (_categories[index].name == 'Busca Processual') {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SearchPage(),
-                                ),
-                              );
-                            } else if (_categories[index].name == 'Favoritos') {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => FavoritesPage(),
-                                ),
-                              );
-                            }
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                _categories[index].icon,
-                                size: 50.0,
-                                color: PajeColors.customMaterialPrimary,
-                              ),
-                              SizedBox(height: 10.0),
-                              Text(
-                                _categories[index].name,
-                                style: TextStyle(
+        drawer: PajeDrawer(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+            child: Column(
+              children: [
+                CustomScrollView(
+                  physics: const ScrollPhysics(),
+                  shrinkWrap: true,
+                  slivers: [
+                    SliverGrid(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 1,
+                              crossAxisSpacing: 16,
+                              mainAxisSpacing: 16),
+                      delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return Card(
+                          child: InkWell(
+                            onTap: () {
+                              if (_categories[index].name ==
+                                  'Busca Processual') {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SearchPage(),
+                                  ),
+                                );
+                              } else if (_categories[index].name ==
+                                  'Favoritos') {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FavoritesPage(),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  _categories[index].icon,
+                                  size: 50.0,
                                   color: PajeColors.customMaterialPrimary,
-                                  fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                            ],
+                                SizedBox(height: 10.0),
+                                Text(
+                                  _categories[index].name,
+                                  style: TextStyle(
+                                    color: PajeColors.customMaterialPrimary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }, childCount: _categories.length),
-                  ),
-                ],
-              ),
-            ],
+                        );
+                      }, childCount: _categories.length),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

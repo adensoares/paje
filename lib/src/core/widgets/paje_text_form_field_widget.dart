@@ -10,6 +10,8 @@ class PajeTextFormField extends StatelessWidget {
     required this.obscureText,
     this.onTap,
     Key? key,
+    this.controller,
+    this.validator,
   }) : super(key: key);
 
   final String? labelText;
@@ -18,11 +20,16 @@ class PajeTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool obscureText;
   final void Function()? onTap;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: TextFormField(
+        controller: controller,
+        validator: validator,
         obscureText: obscureText,
         keyboardType: keyboardType,
         onTap: onTap,

@@ -29,7 +29,6 @@ class _PajeFilterChipState extends State<PajeFilterChip> {
           style: TextStyle(
             color: selected ? PajeColors.onPrimary : PajeColors.onSecondary,
             fontWeight: FontWeight.bold,
-            fontSize: 16,
           ),
         ),
         selected: selected,
