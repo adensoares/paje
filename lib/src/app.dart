@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/const/paje_colors.dart';
 
-import 'modules/auth/presentation/pages/splash_page.dart';
+import 'modules/splash/presentation/pages/splash_page.dart';
 
 class MyApp extends StatelessWidget {
   @override

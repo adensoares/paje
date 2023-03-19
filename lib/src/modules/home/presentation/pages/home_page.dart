@@ -20,7 +20,7 @@ class Category {
 
 class _HomePageState extends State<HomePage> {
   final _categories = [
-    Category(name: "Busca Processual", icon: Icons.search),
+    Category(name: "Busca por Atos Judiciais", icon: Icons.search),
     Category(name: "Favoritos", icon: Icons.star),
   ];
 
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                           child: InkWell(
                             onTap: () {
                               if (_categories[index].name ==
-                                  'Busca Processual') {
+                                  'Busca por Atos Judiciais') {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -85,11 +85,19 @@ class _HomePageState extends State<HomePage> {
                                   color: PajeColors.customMaterialPrimary,
                                 ),
                                 SizedBox(height: 10.0),
-                                Text(
-                                  _categories[index].name,
-                                  style: TextStyle(
-                                    color: PajeColors.customMaterialPrimary,
-                                    fontWeight: FontWeight.bold,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16.0),
+                                  child: Container(
+                                    height: 30,
+                                    child: Text(
+                                      _categories[index].name,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: PajeColors.customMaterialPrimary,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],

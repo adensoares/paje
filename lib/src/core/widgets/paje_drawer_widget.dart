@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paje/src/modules/favorites/presentation/pages/favorites_page.dart';
-import 'package:paje/src/modules/login/presentation/pages/login_page.dart';
+import 'package:paje/src/modules/auth/presentation/pages/login_page.dart';
 import 'package:paje/src/modules/search/presentation/pages/search_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -68,7 +68,7 @@ class _PajeDrawerState extends State<PajeDrawer> {
           ),
           ListTile(
             leading: Icon(Icons.search),
-            title: Text('Busca Processual'),
+            title: Text('Busca por Atos Judiciais'),
             onTap: () {
               Navigator.push(
                 context,

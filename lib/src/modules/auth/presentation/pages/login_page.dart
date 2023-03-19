@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:paje/src/modules/home/presentation/pages/home_page.dart';
-import 'package:paje/src/modules/login/data/model/user_model.dart';
-import 'package:paje/src/modules/login/data/repository/user_repository.dart';
+import 'package:paje/src/modules/auth/data/model/user_model.dart';
+import 'package:paje/src/modules/auth/data/repository/user_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/const/paje_colors.dart';
-import '../../../../core/widgets/paje_text_form_field_widget.dart';
-import '../../../../core/widgets/primary_button_widget.dart';
+import '../../../../core/widgets/paje_textFormField_widget.dart';
+import '../../../../core/widgets/paje_elevatedButton_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(
                         top: 24.0,
                       ),
-                      child: PrimaryButton(
+                      child: PajeElevatedButton(
                         text: 'Entrar',
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {

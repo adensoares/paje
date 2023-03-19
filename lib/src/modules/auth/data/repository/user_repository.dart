@@ -1,4 +1,4 @@
-import 'package:paje/src/modules/login/data/model/user_model.dart';
+import 'package:paje/src/modules/auth/data/model/user_model.dart';
 
 class UserRepository {
   List<UserModel> users = [

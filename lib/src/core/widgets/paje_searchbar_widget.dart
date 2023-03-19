@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paje/src/core/const/paje_colors.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({
+class PajeSearchBar extends StatelessWidget {
+  const PajeSearchBar({
     Key? key,
     required this.controller,
     this.onChanged,

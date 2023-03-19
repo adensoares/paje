@@ -11,23 +11,23 @@ class AtoRepository {
         titulo: 'Sentença de procedência',
         data: '05/02/2022',
         texto: '''
+        Ação de Indenização nº 0012345-67.2018.8.01.0001
+
         Vistos etc.
 
-        Trata-se de ação de indenização por danos morais proposta por XXX em face de YYY, em decorrência de XXX. 
+        Trata-se de ação de indenização por danos morais movida por A em face de B.
 
-        A ré, citada, apresentou contestação (fls. X-Y) sustentando que XXX.
+        O autor alega ter sofrido danos morais em decorrência de ofensas proferidas pelo réu em rede social.
 
-        É o relatório. Decido.
+        A parte ré apresentou contestação, mas não logrou êxito em afastar a responsabilidade civil.
 
-        Razões recursais.
+        Pelo exposto, JULGO PROCEDENTE o pedido para condenar o réu ao pagamento de indenização por danos morais no valor de R\$ 10.000,00 (dez mil reais), corrigido monetariamente a partir desta data e acrescido de juros de mora de 1% ao mês a contar da citação.
 
-        Cuida-se de recurso interposto por XXX contra sentença que rejeitou os embargos à execução fiscal opostos pela parte apelante.
+        Sem custas ou honorários advocatícios, na forma do art. 55 da Lei 9.099/95.
 
-        Insurge-se a embargante contra o juízo negativo proferido em face da alegada inconstitucionalidade da cobrança do tributo e da decadência do direito de ação do Fisco.
+        Sentença sujeita a reexame necessário.
 
-        Pugna, assim, pela reforma da sentença combatida para julgar procedentes os embargos e, por consequência, declarar a inexistência da dívida tributária.
-
-        É o breve relatório. Passo à análise do apelo.
+        Intimem-se.
       '''),
     AtoModel(
         tipo: 'sentenca',
@@ -38,23 +38,21 @@ class AtoRepository {
         titulo: 'Sentença de homologação de acordo',
         data: '18/07/2022',
         texto: '''
+        Divórcio consensual nº 0009876-54.2021.8.01.0002
+
         Vistos etc.
 
         Trata-se de ação de divórcio consensual proposta por XXX e YYY, na qual as partes requereram a homologação do acordo entabulado.
 
         Anexo ao petitório inicial, os requerentes juntaram termo de acordo (fls. X-Y), o qual foi devidamente assinado pelas partes e por seus respectivos advogados.
 
-        É o relatório. Decido.
+        Diante do exposto, HOMOLOGO o acordo entabulado entre as partes, para que produza seus efeitos legais.
 
-        Razões recursais.
+        Custas e honorários na forma pactuada.
 
-        Cuida-se de recurso interposto por XXX contra sentença que rejeitou os embargos à execução fiscal opostos pela parte apelante.
+        Sem reexame necessário.
 
-        Insurge-se a embargante contra o juízo negativo proferido em face da alegada inconstitucionalidade da cobrança do tributo e da decadência do direito de ação do Fisco.
-
-        Pugna, assim, pela reforma da sentença combatida para julgar procedentes os embargos e, por consequência, declarar a inexistência da dívida tributária.
-
-        É o breve relatório. Passo à análise do apelo.
+        Intimem-se.
       '''),
     AtoModel(
         tipo: 'sentenca',
@@ -65,80 +63,85 @@ class AtoRepository {
         titulo: 'Indenização por Danos Morais',
         data: '10/02/2022',
         texto: '''
-    Vistos, etc.
+  Ação de Indenização nº 0000123-45.2022.8.01.0001
 
-    Trata-se de ação de indenização por danos morais movida por João da Silva em face de Empresa XYZ.
+Vistos etc.
 
-    Segundo a inicial, o autor teria sido vítima de ofensas verbais e humilhações no ambiente de trabalho, em razão de sua orientação sexual.
+Trata-se de ação de indenização por danos morais movida por A em face de B.
 
-    A parte ré apresentou contestação, alegando que as supostas condutas não ocorreram e que, de qualquer forma, não houve dano moral a ser indenizado.
+A parte autora alega ter sofrido danos morais em decorrência de comentários injuriosos proferidos pelo réu em redes sociais.
 
-    Analisando o conjunto probatório dos autos, verifico que as alegações do autor restaram comprovadas, pois as testemunhas ouvidas em juízo confirmaram as humilhações sofridas pelo autor.
+O réu apresentou contestação, mas não logrou êxito em afastar a responsabilidade civil.
 
-    Dessa forma, é inegável que o autor sofreu danos morais, que devem ser indenizados pela parte ré.
+Pelo exposto, JULGO PROCEDENTE o pedido para condenar o réu ao pagamento de indenização por danos morais no valor de R\$ 5.000,00 (cinco mil reais), corrigido monetariamente a partir desta data e acrescido de juros de mora de 1% ao mês a contar da citação.
 
-    Ante o exposto, julgo procedente o pedido inicial para condenar a Empresa XYZ a pagar a João da Silva a quantia de R\$ 20.000,00 (vinte mil reais) a título de indenização por danos morais.
+Custas e honorários advocatícios na forma pactuada.
 
-    Custas e honorários advocatícios, estes fixados em 10% sobre o valor da condenação, ficam a cargo da parte ré.
+Sentença não sujeita a reexame necessário.
 
-    Publique-se. Registre-se. Intimem-se.
+Intimem-se.
   '''),
     AtoModel(
         tipo: 'despacho',
-        processo: '0001234-56.7890.1.23.4567',
-        magistrado: 'Cicrano de Tal',
-        vara: 'Vara do Trabalho de São Paulo',
-        classe: 'Classe 2',
-        titulo: 'Despacho 1',
-        data: '01/03/2023',
+        processo: '0023456-78.2021.8.01.0003',
+        magistrado: 'Sicrano de Oliveira',
+        vara: '3ª Vara Criminal',
+        classe: 'Ação penal',
+        titulo: 'Despacho de designação de audiência',
+        data: '20/02/2023',
         texto: '''
-    Vistos.
+    Trata-se de ação penal proposta pelo Ministério Público em face de XXX, pela prática do crime previsto no art. 157, §2º, inciso II, do Código Penal.
 
-    Diante da petição de fl. 20, intime-se a parte requerida para, no prazo de 05 (cinco) dias, se manifestar acerca do pedido de tutela provisória de urgência.
+    Conforme consta dos autos, o acusado foi preso em flagrante delito, após ter praticado roubo em uma loja de conveniência.
 
-    Intimem-se.
+    Considerando que a instrução processual encontra-se em estágio avançado e que há necessidade de produção de prova oral, designo audiência de instrução e julgamento para o dia 10/04/2023, às 14h.
 
-    São Paulo, 01 de março de 2023.
+    Intimem-se as partes e as testemunhas arroladas pela acusação e pela defesa, para comparecimento na referida data e horário.
 
-    Juiz Cicrano de Tal
+    Determino, ainda, que a Secretaria da Vara providencie a oitiva de policiais militares que efetuaram a prisão do acusado, oficiando-se à autoridade responsável pela sua condução à audiência.
   '''),
     AtoModel(
         tipo: 'despacho',
-        processo: '0009876-54.3210.9.87.6543',
-        magistrado: 'Beltrana de Tal',
-        vara: '2ª Vara de Família de Belo Horizonte',
-        classe: 'Classe 3',
-        titulo: 'Despacho 2',
-        data: '28/02/2023',
+        processo: '0012345-67.2022.8.01.0001',
+        magistrado: 'Fulano de Tal',
+        vara: '1ª Vara Cível',
+        classe: 'Ação de cobrança',
+        titulo: 'Despacho de intimação para manifestação',
+        data: '10/03/2023',
         texto: '''
-    Vistos.
+Trata-se de ação de cobrança proposta por A em face de B.
 
-    Recebo os documentos de fls. 105-115 como complemento de instrução, determinando a inclusão da audiência para o dia 10/03/2023, às 14h00min.
+ Conforme decisão proferida em audiência de conciliação, as partes celebraram acordo, comprometendo-se a pagar a dívida em 5 parcelas.
 
-    Intimem-se as partes e testemunhas, se o caso, via mandado ou carta AR, devendo constar nos mesmos todas as advertências acerca das sanções por ausência injustificada.
+ Todavia, a parte autora informa que a parcela referente ao mês de fevereiro/2023 não foi paga, tendo decorrido o prazo para quitação.
 
-    Diligencie-se.
+ Assim, intime-se a parte requerida para, no prazo de 15 (quinze) dias, manifestar-se acerca do inadimplemento da obrigação assumida no acordo.
 
-    Belo Horizonte, 28 de fevereiro de 2023.
-
-    Juíza Beltrana de Tal
+ Decorrido o prazo, voltem os autos conclusos para decisão.
   '''),
     AtoModel(
-      tipo: 'despacho',
-      processo: '0000123-45.6789.0.01.0001',
-      magistrado: 'Beltrano da Silva',
-      vara: '1ª Vara Federal',
-      classe: 'Ação Civil Pública',
-      titulo: 'Despacho de Intimação',
-      data: '23/02/2022',
-      texto: '''
-          Recebo o pedido inicial e determino que o réu seja citado para, querendo, apresentar defesa no prazo legal.
-          
-          Dê-se vista dos autos ao Ministério Público Federal para que se manifeste acerca do pedido de tutela antecipada.
-          
-          Intimem-se as partes.
-      ''',
-    ),
+        tipo: 'despacho',
+        processo: '0013456-78.2023.8.01.0002',
+        magistrado: 'Ciclano de Tal',
+        vara: '2ª Vara de Fazenda Pública',
+        classe: 'Ação anulatória de débito fiscal',
+        titulo: 'Despacho de determinação de prova pericial',
+        data: '15/03/2023',
+        texto: '''
+      Trata-se de ação anulatória de débito fiscal proposta por A em face do Estado.
+
+      Considerando a complexidade da matéria e a necessidade de produção de prova pericial, determino a realização de perícia contábil para apuração da existência e extensão do suposto débito fiscal objeto da lide.
+
+      Designo como perito o Sr. XXX, contabilista registrado no CRC/XX sob o número XXXXX.
+
+      Fixo o prazo de 10 (dez) dias para que as partes se manifestem acerca da indicação do perito e apresentem quesitos, sob pena de preclusão.
+
+      Decorrido o prazo sem manifestação, intime-se o perito para que apresente proposta de honorários.
+
+      Após, intimem-se as partes para que recolham a quantia referente aos honorários periciais, no prazo de 5 (cinco) dias, sob pena de extinção do processo.
+
+      Cumpridas as diligências acima determinadas, voltem os autos conclusos para sentença.
+'''),
     AtoModel(
       tipo: 'decisao',
       processo: '0000456-78.9012.0.02.0002',

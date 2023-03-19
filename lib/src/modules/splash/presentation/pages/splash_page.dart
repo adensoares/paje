@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paje/src/modules/login/presentation/pages/login_page.dart';
+import 'package:paje/src/modules/auth/presentation/pages/login_page.dart';
 import 'package:paje/src/core/const/paje_colors.dart';
 
 class SplashPage extends StatefulWidget {

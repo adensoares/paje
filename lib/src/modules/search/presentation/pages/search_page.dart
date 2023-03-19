@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:paje/src/core/widgets/paje_filterbutton_widget.dart';
+import 'package:paje/src/core/widgets/paje_filterIcon_widget.dart';
 
-import 'package:paje/src/core/widgets/primary_button_widget.dart';
+import 'package:paje/src/core/widgets/paje_elevatedButton_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:paje/src/core/const/paje_colors.dart';
-import 'package:paje/src/core/widgets/searchbar_widget.dart';
+import 'package:paje/src/core/widgets/paje_searchbar_widget.dart';
 
 import 'package:paje/src/modules/atos/data/model/ato_model.dart';
 import 'package:paje/src/modules/atos/data/repository/ato_repository.dart';
@@ -24,6 +24,8 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   AtoRepository repository = AtoRepository();
   final _searchController = TextEditingController();
+
+  final atoRepository = AtoRepository();
 
   List<AtoModel> _favorites = [];
   List<AtoModel> _atosFound = [];
@@ -160,7 +162,8 @@ class _SearchPageState extends State<SearchPage> {
       //     .toList();
       _result = repository.atos.where((ato) {
         bool matchesValue =
-            ato.titulo.toLowerCase().contains(value.toLowerCase());
+            ato.titulo.toLowerCase().contains(value.toLowerCase()) ||
+                ato.texto.toLowerCase().contains(value.toLowerCase());
 
         bool matchesTipo = true;
         if (tipos != null && tipos.isNotEmpty) {
@@ -336,7 +339,8 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   DropdownButton<String>(
                     value: _magistradoSelected,
-                    items: _magistrados
+                    items: atoRepository
+                        .getMagistrados()
                         .map((magistrado) => DropdownMenuItem(
                               value: magistrado,
                               child: Text(magistrado),
@@ -359,7 +363,8 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   DropdownButton<String>(
                     value: _classeSelected,
-                    items: _classes
+                    items: atoRepository
+                        .getClasses()
                         .map((classe) => DropdownMenuItem(
                               value: classe,
                               child: Text(classe),
@@ -382,7 +387,8 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   DropdownButton<String>(
                     value: _varaSelected,
-                    items: _varas
+                    items: atoRepository
+                        .getVaras()
                         .map((vara) => DropdownMenuItem(
                               value: vara,
                               child: Text(vara),
@@ -396,7 +402,7 @@ class _SearchPageState extends State<SearchPage> {
                     hint: Text('Selecione uma vara'),
                   ),
                   SizedBox(height: 32),
-                  PrimaryButton(
+                  PajeElevatedButton(
                     onPressed: () {
                       _search(
                         _keyWord,
@@ -435,7 +441,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Busca por Ato Judicial"),
+        title: Text("Busca por Atos Judiciais"),
         centerTitle: true,
       ),
       body: Padding(
@@ -448,7 +454,7 @@ class _SearchPageState extends State<SearchPage> {
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
               ),
-              child: SearchBar(
+              child: PajeSearchBar(
                 controller: _searchController,
                 onChanged: ((value) {
                   _search(value);

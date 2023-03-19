@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paje/src/core/const/paje_colors.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class PajeElevatedButton extends StatelessWidget {
+  const PajeElevatedButton({
     required this.onPressed,
     required this.text,
     Key? key,
