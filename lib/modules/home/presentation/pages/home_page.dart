@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paje/core/const/paje_colors.dart';
 import 'package:paje/core/widgets/paje_drawer_widget.dart';
 import 'package:paje/modules/favorites/presentation/pages/favorites_page.dart';
+import 'package:paje/modules/my_atos/presentation/pages/my_atos_page.dart';
 import 'package:paje/modules/search/presentation/pages/search_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   final _categories = [
     Category(name: "Busca por Atos Judiciais", icon: Icons.search),
     Category(name: "Favoritos", icon: Icons.star),
+    Category(name: "Meus Atos Judiciais", icon: Icons.description),
   ];
 
   @override
@@ -72,6 +74,14 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => FavoritesPage(),
+                                  ),
+                                );
+                              } else if (_categories[index].name ==
+                                  'Meus Atos Judiciais') {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyAtosPage(),
                                   ),
                                 );
                               }

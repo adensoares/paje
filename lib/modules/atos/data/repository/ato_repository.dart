@@ -5,7 +5,7 @@ class AtoRepository {
     AtoModel(
         tipo: 'sentenca',
         processo: '0012345-67.2018.8.01.0001',
-        magistrado: 'Fulano de Tal',
+        magistrado: 'Ana Silva',
         vara: '1ª Vara Cível',
         classe: 'Ação de Indenização',
         titulo: 'Sentença de procedência',
@@ -32,7 +32,7 @@ class AtoRepository {
     AtoModel(
         tipo: 'sentenca',
         processo: '0009876-54.2021.8.01.0002',
-        magistrado: 'Beltrana da Silva',
+        magistrado: 'Ana Silva',
         vara: '2ª Vara de Família',
         classe: 'Divórcio consensual',
         titulo: 'Sentença de homologação de acordo',
@@ -86,7 +86,7 @@ Intimem-se.
         processo: '0023456-78.2021.8.01.0003',
         magistrado: 'Sicrano de Oliveira',
         vara: '3ª Vara Criminal',
-        classe: 'Ação penal',
+        classe: 'Ação Penal',
         titulo: 'Despacho de designação de audiência',
         data: '20/02/2023',
         texto: '''

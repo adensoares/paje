@@ -90,9 +90,19 @@ class _PajeDrawerState extends State<PajeDrawer> {
               );
             },
           ),
-          Divider(
-            height: 2,
+          ListTile(
+            leading: Icon(Icons.description),
+            title: Text('Meus Atos Judiciais'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FavoritesPage(),
+                ),
+              );
+            },
           ),
+          Divider(),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text("Configurações"),
